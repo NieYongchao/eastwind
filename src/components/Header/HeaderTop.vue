@@ -2,8 +2,8 @@
   <header class="header">
     <slot name="left"></slot>
     <span class="header_title">
-      <!-- <span class="header_title_text ellipsis">{{title}}</span> -->
-      <span class="header_title_text ellipsis">平顶山</span>
+      <span class="header_title_text ellipsis">{{title}}</span>
+      <!-- <span class="header_title_text ellipsis">平顶山</span> -->
     </span>
     <slot name="right"></slot>
   </header>
@@ -11,7 +11,9 @@
 
 <script>
 export default {
-  // props: ["title"]
+  props: {
+    title: String
+  }
 }
 </script>
 

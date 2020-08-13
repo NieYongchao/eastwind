@@ -65,10 +65,58 @@
               <span>土豪推荐</span>
             </a>
           </div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
+          <div class="swiper-slide">
+            <a href="javascript:" class="link_to_food">
+              <div class="food_container">
+                <img src="./images/nav/9.jpg" />
+              </div>
+              <span>甜品饮品</span>
+            </a>
+            <a href="javascript:" class="link_to_food">
+              <div class="food_container">
+                <img src="./images/nav/10.jpg" />
+              </div>
+              <span>商超便利</span>
+            </a>
+            <a href="javascript:" class="link_to_food">
+              <div class="food_container">
+                <img src="./images/nav/11.jpg" />
+              </div>
+              <span>美食</span>
+            </a>
+            <a href="javascript:" class="link_to_food">
+              <div class="food_container">
+                <img src="./images/nav/12.jpg" />
+              </div>
+              <span>简餐</span>
+            </a>
+            <a href="javascript:" class="link_to_food">
+              <div class="food_container">
+                <img src="./images/nav/13.jpg" />
+              </div>
+              <span>新店特惠</span>
+            </a>
+            <a href="javascript:" class="link_to_food">
+              <div class="food_container">
+                <img src="./images/nav/14.jpg" />
+              </div>
+              <span>准时达</span>
+            </a>
+            <a href="javascript:" class="link_to_food">
+              <div class="food_container">
+                <img src="./images/nav/1.jpg" />
+              </div>
+              <span>预订早餐</span>
+            </a>
+            <a href="javascript:" class="link_to_food">
+              <div class="food_container">
+                <img src="./images/nav/2.jpg" />
+              </div>
+              <span>土豪推荐</span>
+            </a>
+          </div>
         </div>
-        <!-- <div class="swiper-pagination"></div> -->
+        <div class="swiper-pagination"></div>
       </div>
     </nav>
     <!-- 商家列表 -->
@@ -79,44 +127,46 @@
         <span class="shop_list_title">附近商家</span>
       </div>
       <!-- 商家列表 -->
-      <div class="shop_list">
-        <ul>
-          <li>lalala</li>
-        </ul>
-      </div>
+      <ShopList/>
     </div>
   </div>
 </template>
 
 <script>
 import Swiper from "swiper";
-import "swiper/swiper-bundle.css";
+import "swiper/dist/css/swiper.min.css";
 import HeaderTop from "../../components/Header/HeaderTop";
+import ShopList from "../../components/ShopList/ShopList"
 
 export default {
   data() {
-    let mySwiper = new Swiper(".swiper-container", {
-      // Optional parameters
-      direction: "vertical",
-      loop: true,
-      // And if we need scrollbar
-      // scrollbar: {
-      //   el: ".swiper-scrollbar",
-      // },
-    });
     return {
-      mySwiper,
       adress: "平顶山",
     };
   },
+
+  mounted() {
+    // 挂载时实现轮播
+    new Swiper(".swiper-container", {
+      // Optional parameters
+      loop: true,
+
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      
+    });
+  },
   components: {
     HeaderTop,
+    ShopList
   },
 };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import url('//at.alicdn.com/t/font_2001281_l06xfwgwho.css');
+@import url('//at.alicdn.com/t/font_2001281_rol967bc8y.css');
+@import "../../common/stylus/mixins.styl";
 .home
   width 100%
   .nav_box
@@ -145,20 +195,20 @@ export default {
               display inline-block
               width 50px
               height 50px
-          span 
+          span
             display block
             text-align center
             font-size 14px
             color #666
   .home_shop_list
     width 100%
-    height 300px
+    height auto
     background-color #fff
     margin-top 60px
     .shop_list_header
       padding 15px 10px 0
       .icon-fujinshangjia
-        margin 0 10px 
+        margin 0 10px
         color #999
         font-size 18px
         vertical-align middle

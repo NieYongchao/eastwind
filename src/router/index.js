@@ -7,6 +7,7 @@ import Home from '../pages/Home/Home.vue'
 import Search from '../pages/Search/Search.vue'
 import Order from '../pages/Order/Order.vue'
 import User from '../pages/User/User.vue'
+import Login from '../pages/Login/Login.vue'
 
 // 声明
 Vue.use(Router)
@@ -17,19 +18,35 @@ export default new Router({
   routes: [
     {
       path: '/home',
-      component: Home
+      component: Home,
+      meta: {
+        showFooter: true
+      }
     },
     {
       path: '/search',
-      component: Search
+      component: Search,
+      meta: {
+        showFooter: true
+      }
     },
     {
       path: '/order',
-      component: Order
+      component: Order,
+      meta: {
+        showFooter: true
+      }
     },
     {
       path: '/user',
-      component: User
+      component: User,
+      meta: {
+        showFooter: true
+      }
+    },
+    {
+      path: '/login',
+      component: Login
     },
     {
       path: '/',

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "swiper": "^6.1.1",
+    "swiper": "^4.2.6",
     "vue": "^2.6.11",
     "vue-router": "^3.4.2"
   },
@@ -37,7 +37,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "vue/no-unused-vars":"off"
+      "vue/no-unused-vars": "off"
     }
   },
   "browserslist": [
