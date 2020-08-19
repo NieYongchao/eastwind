@@ -5,20 +5,26 @@
         <span class="header_title_text">我的</span>
       </a>
     </header> -->
-    <HeaderTop title="我的">
-    </HeaderTop>
+    <HeaderTop title="我的"> </HeaderTop>
     <section class="user-number">
-      <router-link to="/login" class="user-link">
+      <router-link
+        :to="userInfo._id ? '/userinfo' : '/login'"
+        class="user-link"
+      >
         <div class="user_image">
           <i class="iconfont icon-icon-test1"></i>
         </div>
         <div class="user-info">
-          <p class="user-info-top">登录/注册</p>
+          <p class="user-info-top" v-if="!userInfo.phone">
+            {{ userInfo.name || "登录/注册" }}
+          </p>
           <p>
             <span class="user-icon">
-              <i class="iconfont icon-shouji icon-mobile"></i>
+              <i class="iconfont icon-shouji .icon-mobile"></i>
             </span>
-            <span class="icon-mobile-number">暂无绑定手机号</span>
+            <span class="icon-mobile-number">{{
+              userInfo.phone || "暂无绑定手机号"
+            }}</span>
           </p>
         </div>
         <span class="arrow">
@@ -94,22 +100,47 @@
         </div>
       </a>
     </section>
+    <section class="user_my_order border-1px">
+      <!-- 退出登录 -->
+      <mt-button type="danger" size="large" v-if="userInfo._id" @click="logout"
+        >退出登录</mt-button
+      >
+    </section>
   </section>
 </template>
 
 <script>
-import HeaderTop from '../../components/Header/HeaderTop'
+import HeaderTop from "../../components/Header/HeaderTop";
+import { MessageBox, Toast } from 'mint-ui';
+import { mapState } from "vuex";
 export default {
   components: {
-    HeaderTop
-  }
+    HeaderTop,
+  },
+  computed: {
+    ...mapState(["userInfo"]),
+  },
+  methods: {
+    // 退出
+    logout() {
+      MessageBox.confirm("确定退出吗？").then(
+        () => {
+          this.$store.dispatch('logout')
+          Toast("已退出")
+        },
+        () => {
+          console.log("取消")
+        }
+      )
+    },
+  },
 };
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import url('//at.alicdn.com/t/font_2001281_rol967bc8y.css');
+@import url('//at.alicdn.com/t/font_2001281_3sx690lxrv1.css');
 @import "../../common/stylus/mixins.styl";
-.user 
+.user
   width 100%
   .user-number
     margin-top 45.5px
@@ -141,13 +172,10 @@ export default {
             padding-bottom 8px
           .user-icon
             display inline-block
-            margin-left -15px
-            margin-right 5px
+            // margin-left -15px
+            // margin-right 5px
             width 20px
             height 20px
-            .icon-mobile
-              font-size 30px
-              vertical-align text-top
           .icon-mobile-number
             font-size 14px
             color #fff

@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import url('//at.alicdn.com/t/font_2001281_1w6t547ywpd.css');
+@import url('//at.alicdn.com/t/font_2001281_3sx690lxrv1.css');
   .footer_box 
     width 100%
     height 60px

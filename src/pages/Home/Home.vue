@@ -5,9 +5,12 @@
       <router-link class="header_search" slot="left" to="/search">
         <i class="iconfont icon-sousuo"></i>
       </router-link>
-      <router-link class="header_login" slot="right" to="#">
-        <span class="header_login_text">
+      <router-link class="header_login" slot="right" :to="userInfo._id?'/userinfo':'/login'">
+        <span class="header_login_text" v-if="!userInfo._id">
           登录|注册
+        </span>
+        <span class="header_login_user" v-else>
+          <i class="iconfont icon-yonghu1"></i>
         </span>
       </router-link>
     </HeaderTop>
@@ -71,7 +74,7 @@ export default {
     this.$store.dispatch("getShops")
   },
   computed: {
-    ...mapState(["address", "categorys"]),
+    ...mapState(["address", "categorys", "userInfo"]),
 
     // 处理食品分类数据
     categorysArr() {
@@ -113,7 +116,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import url('//at.alicdn.com/t/font_2001281_rol967bc8y.css');
+@import url('//at.alicdn.com/t/font_2001281_3sx690lxrv1.css');
 @import "../../common/stylus/mixins.styl";
 .home
   width 100%

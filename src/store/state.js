@@ -8,4 +8,5 @@ export default {
   address: {}, //地址信息
   categorys: [], //食品分类
   shops: [], //商家列表数据
+  userInfo: {}, //用户信息
 }

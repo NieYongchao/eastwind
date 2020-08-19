@@ -58,4 +58,7 @@ export default {
       .header_login_text
         font-size 16px
         color #fff
+      .header_login_user
+        .iconfont
+          font-size 22px
 </style>

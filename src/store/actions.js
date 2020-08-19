@@ -5,13 +5,17 @@
 import {
   RECEIVE_ADDRESS,
   RECEIVE_CATEGORYS,
-  RECEIVE_SHOPS
+  RECEIVE_SHOPS,
+  RECEIVE_USER_INFO,
+  RESET_USER_INFO
 } from './mutation-types'
 
 import {
   reqAddress,
   reqFoodCategorys,
-  reqShops
+  reqShops,
+  reqUserInfo,
+  reqLogout
 } from '../api'
 
 export default {
@@ -25,7 +29,7 @@ export default {
       commit(RECEIVE_ADDRESS, {address})
     }
   },
-  // 异步食品分类
+  // 异步获取食品分类
   async getCategorys ({commit}) {
     const result = await reqFoodCategorys()
 
@@ -34,7 +38,7 @@ export default {
       commit(RECEIVE_CATEGORYS, {categorys})
     }
   },
-  // 异步商家数据
+  // 异步获取商家数据
   async getShops ({commit, state}) {
     const { longtitude, latitude } = state
     const result = await reqShops(longtitude,latitude)
@@ -44,4 +48,23 @@ export default {
       commit(RECEIVE_SHOPS, {shops})
     }
   },
+  // 保存用户信息
+  recordUser ({commit}, userInfo) {
+    commit(RECEIVE_USER_INFO, {userInfo})
+  },
+  // 获取用户信息
+  async getUserInfo ({commit}) {
+    let result = await reqUserInfo()
+    if(result.code==0){
+      let userInfo = result.data
+      commit(RECEIVE_USER_INFO, {userInfo})
+    }
+  },
+  // 用户退出
+  async logout ({commit}) {
+    let result = await reqLogout()
+    if(result.code==0){
+      commit(RESET_USER_INFO)
+    }
+  }
 }
