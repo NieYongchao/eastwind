@@ -7,7 +7,10 @@ import {
   RECEIVE_CATEGORYS,
   RECEIVE_SHOPS,
   RECEIVE_USER_INFO,
-  RESET_USER_INFO
+  RESET_USER_INFO,
+  RECEIVE_GOODS,
+  RECEIVE_INFO,
+  RECEIVE_RATING
 } from './mutation-types'
 
 export default {
@@ -29,5 +32,17 @@ export default {
 
   [RESET_USER_INFO] (state) {
     state.userInfo = {}
-  }
+  },
+  // 商家食品分类
+  [RECEIVE_GOODS] (state, {goods}) {
+    state.goods = goods
+  },
+  // 商家评价
+  [RECEIVE_RATING] (state, {rating}) {
+    state.rating = rating
+  },
+  // 商家详情
+  [RECEIVE_INFO] (state, {info}) {
+    state.info = info
+  },
 }

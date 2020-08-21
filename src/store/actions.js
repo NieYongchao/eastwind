@@ -7,7 +7,10 @@ import {
   RECEIVE_CATEGORYS,
   RECEIVE_SHOPS,
   RECEIVE_USER_INFO,
-  RESET_USER_INFO
+  RESET_USER_INFO,
+  RECEIVE_GOODS,
+  RECEIVE_RATING,
+  RECEIVE_INFO
 } from './mutation-types'
 
 import {
@@ -15,7 +18,10 @@ import {
   reqFoodCategorys,
   reqShops,
   reqUserInfo,
-  reqLogout
+  reqLogout,
+  reqShopGoods,
+  reqShopRating,
+  reqShopInfo
 } from '../api'
 
 export default {
@@ -66,5 +72,31 @@ export default {
     if(result.code==0){
       commit(RESET_USER_INFO)
     }
-  }
+  },
+  // 获取商家食品分类信息
+  async getShopGoods ({commit}, callback) {
+    let result = await reqShopGoods()
+    if(result.code==0){
+      let goods = result.data
+      commit(RECEIVE_GOODS, {goods})
+      // 执行回调
+      callback && callback()
+    }
+  },
+  // 获取商家评价信息
+  async getShopRating ({commit}) {
+    let result = await reqShopRating()
+    if(result.code==0){
+      let rating = result.data
+      commit(RECEIVE_RATING, {rating})
+    }
+  },
+  // 获取商家详情信息
+  async getShopInfo ({commit}) {
+    let result = await reqShopInfo()
+    if(result.code==0){
+      let info = result.data
+      commit(RECEIVE_INFO, {info})
+    }
+  },
 }

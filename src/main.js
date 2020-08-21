@@ -9,6 +9,8 @@ import store from './store'
 import { Button } from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+import './mock/mockServe'
+
 Vue.component(Button.name, Button)
 
 

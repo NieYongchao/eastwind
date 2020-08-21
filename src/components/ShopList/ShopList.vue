@@ -2,7 +2,7 @@
   <div class="shop_list_container">
     <ul class="shop_list" v-if="shops.length">
       <li class="shop_li" v-for="(shop, index) in shops" :key="index">
-        <a href="#">
+        <router-link to="/shop/goods">
           <section class="shop_li_left">
             <!-- <img class="shop_img" src="./images/shop/1.jpg" /> -->
             <img class="shop_img" src="./images/shop/food03.jpg" />
@@ -36,7 +36,7 @@
               </p>
             </section>
           </section>
-        </a>
+        </router-link>
       </li>
     </ul>
     <ul v-else>
