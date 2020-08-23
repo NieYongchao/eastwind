@@ -232,7 +232,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import url('//at.alicdn.com/t/font_2001281_892uv117k1h.css');
+@import url('//at.alicdn.com/t/font_2001281_gg1y2fb2gm.css');
 @import "../../common/stylus/mixins.styl";
 .loginContainer
   width 100%

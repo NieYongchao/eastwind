@@ -1,7 +1,7 @@
 <template>
   <div class="shop-header">
     <nav class="shop-nav" :style="{ backgroundImage: `url(${info.bgImg})` }">
-      <a class="back" @click="$router.back()">
+      <a class="back" @click="$router.replace('/home')">
         <i class="iconfont icon-back"></i>
       </a>
     </nav>
@@ -144,7 +144,7 @@ import {mapState} from 'vuex'
 </script>
 
 <style lang="stylus" rel="stylesheet" scoped>
-@import url('//at.alicdn.com/t/font_2001281_892uv117k1h.css');
+@import url('//at.alicdn.com/t/font_2001281_gg1y2fb2gm.css');
 @import "../../common/stylus/mixins.styl"
 
   .shop-header
