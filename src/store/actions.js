@@ -13,7 +13,8 @@ import {
   RECEIVE_INFO,
   INCREASE_FOOD_COUNT,
   DECREASE_FOOD_COUNT,
-  CLEAR_CART
+  CLEAR_CART,
+  RECEIVE_SEARCH_SHOPS
 } from './mutation-types'
 
 import {
@@ -24,7 +25,8 @@ import {
   reqLogout,
   reqShopGoods,
   reqShopRating,
-  reqShopInfo
+  reqShopInfo,
+  reqSearchShop
 } from '../api'
 
 export default {
@@ -87,12 +89,14 @@ export default {
     }
   },
   // 获取商家评价信息
-  async getShopRating ({commit}) {
+  async getShopRating ({commit}, callback) {
     let result = await reqShopRating()
     if(result.code==0){
       let rating = result.data
       commit(RECEIVE_RATING, {rating})
     }
+    // 数据更新时执行回调
+    callback && callback()
   },
   // 获取商家详情信息
   async getShopInfo ({commit}) {
@@ -113,5 +117,16 @@ export default {
   //清空购物车
   clearCart ({commit}) {
     commit(CLEAR_CART)
-  }
+  },
+  //
+  // 搜索商家数据
+  async searchShops ({commit, state}, keyword) {
+    const geohash = state.latitude + ',' + state.longtitude 
+    const result = await reqSearchShop(geohash,keyword)
+
+    if(result.code==0){
+      const searchShops = result.data
+      commit(RECEIVE_SEARCH_SHOPS, {searchShops})
+    }
+  },
 }

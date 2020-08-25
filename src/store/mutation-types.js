@@ -12,3 +12,4 @@ export const RECEIVE_RATING = 'receive_rating'  //接收商家评价数据
 export const INCREASE_FOOD_COUNT = 'increase_food_count'  //接收商家评价数据
 export const DECREASE_FOOD_COUNT = 'decrease_food_count'  //接收商家评价数据
 export const CLEAR_CART = 'clear_cart'  //清空购物车
+export const RECEIVE_SEARCH_SHOPS = 'receive_search_shops'  //接收商家数据

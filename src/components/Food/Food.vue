@@ -4,7 +4,7 @@
       <div class="food" v-if="isShow">
         <div class="food_content">
           <div class="image_header">
-            <img :src="food.image" />
+            <img v-lazy="food.image" />
             <p class="food_desc">{{ food.info }}</p>
             <div class="back" @click="toggleShow">
               <i class="iconfont icon-back"></i>
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet" scoped>
-@import "//at.alicdn.com/t/font_2001281_gg1y2fb2gm.css"
+@import "//at.alicdn.com/t/font_2001281_jn4p81ikcwr.css"
 @import "../../common/stylus/mixins.styl"
 .food
   position fixed

@@ -2,11 +2,13 @@
   <div>
     <ShopHeader/>
     <div class="nav">
-      <router-link class="nav_item" to="/shop/goods">点餐</router-link>
-      <router-link class="nav_item" to="/shop/rating">评价</router-link>
-      <router-link class="nav_item" to="/shop/info">商家</router-link>
+      <router-link class="nav_item" to="/shop/goods" replace>点餐</router-link>
+      <router-link class="nav_item" to="/shop/rating" replace>评价</router-link>
+      <router-link class="nav_item" to="/shop/info" replace>商家</router-link>
     </div>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 

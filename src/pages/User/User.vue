@@ -138,7 +138,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-@import url('//at.alicdn.com/t/font_2001281_gg1y2fb2gm.css');
+@import url('//at.alicdn.com/t/font_2001281_jn4p81ikcwr.css');
 @import "../../common/stylus/mixins.styl";
 .user
   width 100%

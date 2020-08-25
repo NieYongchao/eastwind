@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="stylus" rel="stylesheet">
-@import "//at.alicdn.com/t/font_2001281_gg1y2fb2gm.css" 
+@import "//at.alicdn.com/t/font_2001281_jn4p81ikcwr.css" 
 .cart_control
   .icon-icon_remove
     display inline-block
